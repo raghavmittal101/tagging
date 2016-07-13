@@ -1,0 +1,66 @@
+<!DOCTYPE html >
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection"/>
+
+        <script>
+
+          function myfunc(stri)
+          {
+          var span = document.createElement("span");
+          var prop = document.createAttribute("property");
+          if (window.getSelection().toString().length!==0) {    
+          console.log('highlighted');
+
+          prop.value=stri;
+          span.setAttributeNode(prop);
+          var sel = window.getSelection();
+          if (sel.rangeCount) {
+          var range = sel.getRangeAt(0).cloneRange();
+          range.surroundContents(span);
+          sel.removeAllRanges();
+          sel.addRange(range);
+          }
+          }  
+          }
+          
+        </script>
+
+</head>
+
+<body >
+
+	<div id="page-wrap">
+	
+        <ul class="annolet_dropdown">
+          <li><a href="#" onclick="myfunc('event')">Event</a>
+          </li>
+        	<li><a href="#" onclick="myfunc('organization')">Organization</a>
+        	</li>
+        	<li><a href="#" onclick="myfunc('person')">Person</a>
+        	</li>
+        	<li><a href="#" onclick="myfunc('place')">Place</a>
+        	</li>
+        	<li><a href="#" onclick="myfunc('place')">Action</a>
+        	</li>
+                <li><a href="#" onclick="myfunc('Date')">Date</a>
+        	</li>
+        	<li><a href="#"onclick="myfunc('Currency')">Currency</a>
+        	</li>
+        	<li><a href="#"onclick="myfunc('Unit')">Unit</a>
+        	</li>
+
+        </ul>
+		
+	</div>
+
+        <div>
+          <br>
+            <p> here is some text </p>
+        </div>
+
+</body>
+
+</html>
